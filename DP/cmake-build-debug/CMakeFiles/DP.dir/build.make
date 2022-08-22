@@ -65,27 +65,27 @@ include CMakeFiles/DP.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/DP.dir/flags.make
 
-CMakeFiles/DP.dir/9461.cpp.obj: CMakeFiles/DP.dir/flags.make
-CMakeFiles/DP.dir/9461.cpp.obj: ../9461.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LG\CLionProjects\algorithm\DP\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DP.dir/9461.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DP.dir\9461.cpp.obj -c C:\Users\LG\CLionProjects\algorithm\DP\9461.cpp
+CMakeFiles/DP.dir/1446.cpp.obj: CMakeFiles/DP.dir/flags.make
+CMakeFiles/DP.dir/1446.cpp.obj: ../1446.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LG\CLionProjects\algorithm\DP\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DP.dir/1446.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\DP.dir\1446.cpp.obj -c C:\Users\LG\CLionProjects\algorithm\DP\1446.cpp
 
-CMakeFiles/DP.dir/9461.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DP.dir/9461.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\LG\CLionProjects\algorithm\DP\9461.cpp > CMakeFiles\DP.dir\9461.cpp.i
+CMakeFiles/DP.dir/1446.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DP.dir/1446.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\LG\CLionProjects\algorithm\DP\1446.cpp > CMakeFiles\DP.dir\1446.cpp.i
 
-CMakeFiles/DP.dir/9461.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DP.dir/9461.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LG\CLionProjects\algorithm\DP\9461.cpp -o CMakeFiles\DP.dir\9461.cpp.s
+CMakeFiles/DP.dir/1446.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DP.dir/1446.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LG\CLionProjects\algorithm\DP\1446.cpp -o CMakeFiles\DP.dir\1446.cpp.s
 
 # Object files for target DP
 DP_OBJECTS = \
-"CMakeFiles/DP.dir/9461.cpp.obj"
+"CMakeFiles/DP.dir/1446.cpp.obj"
 
 # External object files for target DP
 DP_EXTERNAL_OBJECTS =
 
-DP.exe: CMakeFiles/DP.dir/9461.cpp.obj
+DP.exe: CMakeFiles/DP.dir/1446.cpp.obj
 DP.exe: CMakeFiles/DP.dir/build.make
 DP.exe: CMakeFiles/DP.dir/linklibs.rsp
 DP.exe: CMakeFiles/DP.dir/objects1.rsp
