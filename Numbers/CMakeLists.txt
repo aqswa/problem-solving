@@ -5,5 +5,6 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(Numbers
         #3036.cpp
-        11051.cpp
+        #11051.cpp
+        1676.cpp
         )
