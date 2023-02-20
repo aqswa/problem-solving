@@ -1,0 +1,3 @@
+C:/Users/LG/CLionProjects/algorithm/Numbers/cmake-build-debug/CMakeFiles/Numbers.dir
+C:/Users/LG/CLionProjects/algorithm/Numbers/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/LG/CLionProjects/algorithm/Numbers/cmake-build-debug/CMakeFiles/rebuild_cache.dir
