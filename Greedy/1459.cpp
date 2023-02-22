@@ -6,7 +6,7 @@
 using namespace  std;
 
 int main(){
-    long long x, y, w, s;
+    long long x, y, w, s; //int로 선언 시 오버플로우
 
     cin >> x >> y >> w >> s;
 
