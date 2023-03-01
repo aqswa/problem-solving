@@ -5,7 +5,8 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(Greedy
         #1132.cpp
-        2885.cpp
+        2785.cpp
+        #2885.cpp
         #2012.cpp
         #1543.cpp
         #1911.cpp
