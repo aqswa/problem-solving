@@ -15,5 +15,6 @@ add_executable(Greedy
         #23559.cpp
         #11501.cpp
         #2891.cpp
-        1802.cpp
+        #1802.cpp
+        2195.cpp
         )
