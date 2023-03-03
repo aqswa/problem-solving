@@ -7,5 +7,6 @@ add_executable(Numbers
         #3036.cpp
         #11051.cpp
         #1676.cpp
-        2004.cpp
+        #2004.cpp
+        2960.cpp
         )
