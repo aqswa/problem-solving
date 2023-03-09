@@ -10,6 +10,20 @@ int distance(pair<int, int> &p1, pair<int, int> &p2){
     return abs(p1.first - p2.first) + abs(p1.second - p2.second);
 }
 
+void find_combination(int size, int choose, vector<vector<bool>> &close, vector<bool> list, int cur, int index) {
+    if(cur == choose){
+        close.push_back(list);
+        return;
+    }
+
+    for(int i=index; i<size; i++){
+        list[i] = true;
+        find_combination(size, choose, close, list, cur+1, i+1);
+        list[i] = false;
+    }
+}
+
+
 int main(){
     int n, m;
     cin >> n >> m;
@@ -30,51 +44,31 @@ int main(){
         }
     }
 
-    int chicken_cnt = chicken.size();
+    int choose = chicken.size() - m;
+    vector<vector<bool>> close_combination;
+    vector<bool> list(chicken.size(), false); //false이면 제거되지 않은 치킨집
+    find_combination(chicken.size(), choose, close_combination, list, 0, 0);
 
-    vector<bool> chicken_check(chicken_cnt, true); //사라진 치킨집이면 false
-    while(chicken_cnt > m){
-        int min_chicken_distance = 10000;
-        int next_chicken_index = 0;
-        for(int i=0; i<chicken.size(); i++){ //i번 치킨집을 제거했을 때
-            if(!chicken_check[i]) //이미 제거된 치킨집이면 넘어감.
-                continue;
-            int chicken_distance = 0; //도시의 치킨 거리
-            for(int j=0; j<house.size(); j++){ //
-                pair<int, int> h = house[j];
-                int min = 101;
-                for(int k=0; k<chicken.size(); k++) {
-                    if(k==i || !chicken_check[k]) //i번 치킨집이거나 이미 없앤 치킨집이면 다음 치킨집과의 거리 잼
-                        continue;
-                    if (distance(h, chicken[k]) < min) { //지금 치킨집과의 거리가 가장 가까운 치킨집과의 거리보다 가깝다면
-                        min = distance(h, chicken[k]);
-                    }
+    int min_chicken_distance = 10001;
+    for(int i=0; i<close_combination.size(); i++){
+        int chicken_distance = 0;
+        vector<bool> chickens = close_combination[i];
+        for(int j=0; j<house.size(); j++){
+            int closest = 101;
+            for(int k=0; k<chicken.size(); k++) {
+                if (!chickens[k]) {
+                    int dist = distance(house[j], chicken[k]);
+                    if (dist < closest)
+                        closest = dist;
                 }
-                chicken_distance += min;
             }
-
-            if(chicken_distance < min_chicken_distance){
-                min_chicken_distance = chicken_distance;
-                next_chicken_index = i;
-            }
+            chicken_distance += closest;
         }
-        chicken_check[next_chicken_index] = false;
-        chicken_cnt--;
-        cout << next_chicken_index << ' ';
+
+        if(chicken_distance < min_chicken_distance){
+            min_chicken_distance = chicken_distance;
+        }
     }
 
-    int ans = 0;
-    for(int i=0; i<house.size(); i++){
-        int closest = 101;
-        for(int j=0; j<chicken.size(); j++){
-            if(chicken_check[j]){
-                int dist = distance(house[i], chicken[j]);
-                if(dist < closest)
-                    closest = dist;
-            }
-        }
-        ans += closest;
-    }
-
-    cout << ans;
+    cout << min_chicken_distance;
 }
