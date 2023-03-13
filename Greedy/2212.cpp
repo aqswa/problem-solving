@@ -5,7 +5,7 @@
 #include <vector>
 #include <algorithm>
 
-using namespace  std;
+using namespace std;
 
 int main(){
     int n, k;
@@ -18,32 +18,16 @@ int main(){
 
     sort(sensor.begin(), sensor.end());
 
-    int ans = sensor[n-1] - sensor[0];
-    int last_index = 0;
+    vector<int> interval(n-1, 0);
+    for(int i=1; i<n; i++){
+        interval[i-1] = sensor[i] - sensor[i-1];
+    }
 
-    k--;
-    while(k--){
-        int min = ans;
-        int index = last_index;
-        for(int i=last_index+1; i<n; i++){
-            int temp = ans;
-            if(i == last_index+1){
-                temp -= (sensor[n-1] - sensor[last_index] - 1);
-                temp += (sensor[n-1] - sensor[i]);
-            }
-            else{
-                temp -= (sensor[n-1] - sensor[last_index]);
-                temp += (sensor[n-1] - sensor[i]) + (sensor[i-1] - sensor[last_index]);
-            }
+    sort(interval.begin(), interval.end());
 
-            cout << temp << ' ';
-            if(temp <= min){
-                min = temp;
-                index = i;
-            }
-        }
-        last_index = index;
-        ans = min;
+    int ans = 0; //변수 초기화
+    for(int i=0; i<n-k; i++){
+        ans += interval[i];
     }
 
     cout << ans;
