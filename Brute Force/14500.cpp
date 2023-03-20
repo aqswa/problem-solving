@@ -49,9 +49,9 @@ int solve(int n, int m, vector<vector<int>> paper){
                 if (sum + paper[i + 1][j - 1] + paper[i + 1][j] > max)
                     max = sum + paper[i + 1][j - 1] + paper[i + 1][j];
             }
-            if (j != n - 2) {
-                if (sum + paper[i + 1][j] + paper[i + 1][j + 1] > max)
-                    max = sum + paper[i + 1][j] + paper[i + 1][j + 1];
+            if (j != m - 2) {
+                if (sum + paper[i + 1][j+1] + paper[i + 1][j + 2] > max)
+                    max = sum + paper[i + 1][j+1] + paper[i + 1][j + 2];
             }
         }
     }
