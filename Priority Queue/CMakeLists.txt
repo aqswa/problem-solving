@@ -4,5 +4,6 @@ project(Priority_Queue)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(Priority_Queue
-        14235.cpp
+        #14235.cpp
+        2075.cpp
         )
