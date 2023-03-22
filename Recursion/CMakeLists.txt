@@ -4,5 +4,6 @@ project(Recursion)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(Recursion
-        11729.cpp
+        #11729.cpp
+        9663.cpp
         )
