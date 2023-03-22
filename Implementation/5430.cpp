@@ -30,9 +30,9 @@ vector<int> input(int n, string str){
 void output(int front, int back, bool direction, vector<int> &list){
     cout << '[';
 
-    if(direction){
-        for(int i=front; i<=back; i++){
-            if(i==back){
+    if(direction){ //정방향이면
+        for(int i=front; i<=back; i++){ //첫 번째부터 마지막까지 출력
+            if(i==back){ //마지막 원소라면 comma 뺌
                 cout << list[i];
             }
             else {
@@ -41,7 +41,7 @@ void output(int front, int back, bool direction, vector<int> &list){
         }
         cout << "]" << '\n';
     }
-    else{
+    else{ //역방향이면
         for(int i=back; i>=front; i--){
             if(i==front){
                 cout << list[i];
