@@ -11,5 +11,7 @@ add_executable(Implementation
         #21608.cpp
         #16234.cpp
         #14499.cpp
-        17114.cpp
+        #17114.cpp
+        #15683.cpp
+        20056.cpp
         )
