@@ -6,11 +6,8 @@
 
 using namespace std;
 
-int dice_r[4] = {0, 0, 0, 0}; //남쪽으로 굴리는게 +
-int dice_c[4] = {0, 0, 0, 0}; //동쪽으로 굴리는게 +
-
-const int dr[5] = {0, 0, 0, -1, 1}; // 1동 2서 3북 4남
-const int dc[5] = {0, 1, -1, 0, 0};
+int dr[4] = {0, 0, -1, 1}; //+1 동 서 북 남
+int dc[4] = {1, -1, 0, 0};
 
 int main() {
     int n, m, x, y, k;
@@ -23,81 +20,53 @@ int main() {
         }
     }
 
-    int row = x, col = y, index_r = 0, index_c = 0;
+    vector<int> dice(7, 0);
+    int row = x, col = y;
     while(k--){
         int dir;
         cin >> dir;
-        int nr = row + dr[dir];
-        int nc = col + dc[dir];
+
+        int nr = row + dr[dir-1];
+        int nc = col + dc[dir-1];
         if(nr < 0 || nr >= n || nc < 0 || nc >= m){
             continue;
         }
-        row += dr[dir];
-        col += dc[dir];
-        if(dir == 1){ //동
-            index_c++;
-            index_c = (index_c + 4) % 4;
-            if(board[nr][nc] == 0){
-                board[nr][nc] = dice_c[index_c];
-            }
-            else{
-                dice_c[index_c] = board[nr][nc];
-                if(index_c%2 == 0)
-                    dice_r[index_r] = board[nr][nc];
-                board[nr][nc] = 0;
-            }
-            if(index_c < 2)
-                cout << dice_c[index_c + 2] << '\n';
-            else
-                cout << dice_c[index_c - 2] << '\n';
+        row = nr;
+        col = nc;
+        vector<int> temp(7, 0);
+        temp = dice;
+        if(dir == 1){ //동 서 북 남
+            dice[1] = temp[3];
+            dice[3] = temp[6];
+            dice[4] = temp[1];
+            dice[6] = temp[4];
         }
-        else if(dir == 2){ //서
-            index_c--;
-            index_c = (index_c + 4) % 4;
-            if(board[nr][nc] == 0)
-                board[nr][nc] = dice_c[index_c];
-            else{
-                dice_c[index_c] = board[nr][nc];
-                if(index_c%2 == 0)
-                    dice_r[index_r] = board[nr][nc];
-                board[nr][nc] = 0;
-            }
-            if(index_c < 2)
-                cout << dice_c[index_c + 2] << '\n';
-            else
-                cout << dice_c[index_c - 2] << '\n';
+        else if(dir == 2){
+            dice[1] = temp[4];
+            dice[3] = temp[1];
+            dice[4] = temp[6];
+            dice[6] = temp[3];
         }
         else if(dir == 3){ //북
-            index_r--;
-            index_r = (index_r + 4) % 4;
-            if(board[nr][nc] == 0)
-                board[nr][nc] = dice_r[index_r];
-            else{
-                dice_r[index_r] = board[nr][nc];
-                if(index_r%2 == 0)
-                    dice_c[index_c] = board[nr][nc];
-                board[nr][nc] = 0;
-            }
-            if(index_r < 2)
-                cout << dice_r[index_r + 2] << '\n';
-            else
-                cout << dice_r[index_r - 2] << '\n';
+            dice[1] = temp[2];
+            dice[2] = temp[6];
+            dice[5] = temp[1];
+            dice[6] = temp[5];
         }
         else{ //남
-            index_r++;
-            index_r = (index_r + 4) % 4;
-            if(board[nr][nc] == 0)
-                board[nr][nc] = dice_r[index_r];
-            else{
-                dice_r[index_r] = board[nr][nc];
-                if(index_r%2 == 0)
-                    dice_c[index_c] = board[nr][nc];
-                board[nr][nc] = 0;
-            }
-            if(index_r < 2)
-                cout << dice_r[index_r + 2] << '\n';
-            else
-                cout << dice_r[index_r - 2] << '\n';
+            dice[1] = temp[5];
+            dice[2] = temp[1];
+            dice[5] = temp[6];
+            dice[6] = temp[2];
         }
+
+        if(board[row][col] == 0){
+            board[row][col] = dice[1];
+        }
+        else{
+            dice[1] = board[row][col];
+            board[row][col] = 0;
+        }
+        cout << dice[6] << '\n';
     }
 }
