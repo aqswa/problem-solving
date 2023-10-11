@@ -1,6 +1,7 @@
 //
 // Created by LG on 2023-09-17.
 //
+//count_pair를 이차원 pair 벡터로 쓰고 한꺼번에 board로 옮기는 코드에서는 메모리 초과가 발생함.
 #include <iostream>
 #include <vector>
 #include <algorithm>
