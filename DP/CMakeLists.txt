@@ -12,6 +12,8 @@ add_executable(DP
         #2631.cpp
         #9184.cpp
         #9461.cpp
-        10844.cpp
+        #10844.cpp
         #1446.cpp
+        #11053.cpp
+        11659.cpp
         )
