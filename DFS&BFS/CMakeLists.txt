@@ -8,5 +8,7 @@ add_executable(DFS_BFS
         #2606.cpp
         #1012.cpp
         #7576.cpp
-        11724.cpp
+        #11724.cpp
+        #1926.cpp
+        1926-1.cpp
         )
