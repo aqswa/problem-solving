@@ -3,7 +3,6 @@
 //
 #include <iostream>
 #include <vector>
-#include <queue>
 
 using namespace std;
 
@@ -11,37 +10,23 @@ typedef pair<int, int> ci;
 const int INF = 1e9;
 int V;
 vector<vector<ci>> graph;
+vector<int> end_nodes;
 
-int dijkstra(int s){
-    vector<int> distance(V+1, INF);
-    vector<bool> visited(V+1, false);
-    distance[s] = 0;
 
-    priority_queue<ci, vector<ci>> pq; //(연결된 정점, 가중치)
+int find_longest(int s, int before){
 
-    pq.push({0, s}); //(거리, 정점 번호)
-    while(!pq.empty()){
-        int d = pq.top().first;
-        int v = pq.top().second;
-        pq.pop();
-        for(int i=0; i<graph[v].size(); i++){
-            int next_v = graph[v][i].first;
-            int next_d = graph[v][i].second;
-            if(visited[next_v])
-                continue;
-            if(distance[next_v] > d + next_d){
-                distance[next_v] = d + next_d;
-                pq.push({distance[next_v], next_v});
-            }
-        }
+    int longest = 0;
+    for(int i=0; i<graph[s].size(); i++){
+        int next = graph[s][i].first;
+        int next_weight = graph[s][i].second;
+        if(next == before)
+            continue;
+        int length = find_longest(next, s);
+        if(length + next_weight > longest)
+            longest = length + next_weight;
     }
 
-    int max_val = 0;
-    for(int i=1; i<=V; i++){
-        if(distance[i] > max_val)
-            max_val = distance[i];
-    }
-    return max_val;
+    return longest;
 }
 
 int main(){
@@ -61,13 +46,19 @@ int main(){
         }
     }
 
-    int total_max = 0;
-    for(int i=0; i<V; i++){
-        int max_val = dijkstra(i+1);
-        if(max_val > total_max)
-            total_max = max_val;
+    for(int i=1; i<=V; i++){
+        if(graph[i].size() == 1){
+            end_nodes.emplace_back(i);
+        }
     }
 
-    cout << total_max;
+    int ans = 0;
+    for(int i=0; i<end_nodes.size(); i++){
+        int a = find_longest(end_nodes[i], 0);
+        if(a > ans)
+            ans = a;
+    }
+
+    cout << ans;
 }
 
