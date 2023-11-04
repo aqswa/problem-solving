@@ -1,4 +1,13 @@
 "C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" C:\Users\LG\CLionProjects\algorithm\Graph
 -- Configuring done
--- Generating done
--- Build files have been written to: C:/Users/LG/CLionProjects/algorithm/Graph/cmake-build-debug
+CMake Error at CMakeLists.txt:6 (add_executable):
+  Cannot find source file:
+
+    1167.cpp
+
+
+CMake Error at CMakeLists.txt:6 (add_executable):
+  No SOURCES given to target: Graph
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
