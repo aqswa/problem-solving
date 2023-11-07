@@ -6,9 +6,11 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/LG/CLionProjects/algorithm/DP/11659.cpp
+C:/Users/LG/CLionProjects/algorithm/DP/9251.cpp
 iostream
 -
 vector
+-
+algorithm
 -
 
