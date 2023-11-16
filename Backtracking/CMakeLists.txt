@@ -4,5 +4,6 @@ project(Backtracking)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(Backtracking
-        9663.cpp
+        #9663.cpp
+        swea18799.cpp
         )
