@@ -12,5 +12,7 @@ add_executable(DFS_BFS
         #1926.cpp
         #1926-1.cpp
         #4179.cpp
-        8061.cpp
+        #8061.cpp
+        #9205.cpp
+        swea1244.cpp
         )
