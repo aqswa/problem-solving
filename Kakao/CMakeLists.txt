@@ -9,5 +9,6 @@ add_executable(Kakao
         #2023-1-3.cpp
         #표현가능한이진트리.cpp
         #표병합.cpp
-        2023-1-4.cpp
+        #2023-1-4-ing.cpp
+        "두 큐 합 같에 만들기.cpp"
         )
