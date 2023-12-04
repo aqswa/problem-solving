@@ -15,7 +15,6 @@ int solution(vector<int> queue1, vector<int> queue2) {
         q1_sum += queue1[i];
         q2_sum += queue2[i];
     }
-    cout << q1_sum << ' ' << q2_sum << '\n';
 
     int q1_front = 0, q2_front = 0;
 
@@ -52,13 +51,16 @@ int solution(vector<int> queue1, vector<int> queue2) {
                 q2_front++;
             }
         }
-        answer++;
-
-        if(q1_sum == q2_sum){
+        else{
             return answer;
         }
-    }
 
+        answer++;
+
+        if(answer > queue1.size() * 4){
+            return -1;
+        }
+    }
 }
 
 int main(){
