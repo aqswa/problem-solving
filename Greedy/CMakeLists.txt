@@ -19,7 +19,7 @@ add_executable(Greedy
         #2195.cpp
         #12904.cpp
         #17609.cpp
-        #2138-ing.cpp
+        2138.cpp
         #2212.cpp
-        2217.cpp
+        #2217.cpp
         )
