@@ -1,46 +1,55 @@
+//
+// Created by LG on 2024-01-25.
+//
 #include <iostream>
+#include <cstring>
 #include <vector>
+#include <queue>
+
 
 using namespace std;
 
 int N, M; //노드 개수, 알고 싶은 노드 쌍 개수
-//vector<vector<pair<int, int>>> tree;
-vector<vector<int>> dist;
+vector<vector<pair<int, int>>> tree(1001, vector<pair<int, int>>());
+int dist[1001];
 
-void solve() {
-    for (int i = 1; i <= N; i++) {
-        for (int j = 1; j <= N; j++) {
-            for (int k = 1; k <= N; k++) {
-                if (dist[j][i] + dist[i][k] < dist[j][k]) {
-                    dist[j][k] = dist[j][i] + dist[i][k];
-                }
+int solve(int s, int e) {
+    queue<int> q;
+    q.push({s});
+    dist[s] = 0;
+
+    while(!q.empty()){
+        int cur = q.front();
+        q.pop();
+
+        //트리는 사이클이 없으므로 인접 정점으로부터 거리 더한 값이 시작점으로부터의 거리
+        for(int i=0; i<tree[cur].size(); i++){
+            int next = tree[cur][i].first;
+            int cost = tree[cur][i].second;
+            if(dist[next] < 0){
+                dist[next] = dist[cur] + cost;
+                q.push(next);
             }
         }
     }
+
+    return dist[e];
 }
 
 int main() {
     cin >> N >> M;
 
-    //tree.assign(N + 1, vector<pair<int, int>>());
-    dist.assign(N + 1, vector<int>(N + 1, 1e9));
     for (int i = 0; i < N-1; i++) {
         int a, b, w;
         cin >> a >> b >> w;
-        //tree[a].push_back({ b, w });
-        dist[a][b] = w;
-        dist[b][a] = w;
+        tree[a].push_back({ b, w });
+        tree[b].push_back({ a, w });
     }
 
-    for (int i = 1; i <= N; i++) {
-        dist[i][i] = 0;
-    }
-
-    solve();
     while (M--) {
         int a, b;
         cin >> a >> b;
-
-        cout << dist[a][b] << '\n';
+        memset(dist, -1, sizeof(dist));
+        cout << solve(a, b) << '\n';
     }
 }
