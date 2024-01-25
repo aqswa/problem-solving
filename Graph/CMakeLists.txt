@@ -5,5 +5,6 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(Graph
         #4803.cpp
-        1167.cpp
+        #1167.cpp
+        1240.cpp
         )
