@@ -20,9 +20,9 @@ int main() {
         graph[a].push_back(b);
     }
 
-    //int count[100][2]; //0: 내가 도달 가능한 노드 수(가벼운 구슬 수), 1: 나에 도달할 수 있는 노드 수(무거운 구슬 수)
-    //memset(count, 0, sizeof(count));
-    vector<vector<int>> count(100, vector<int>(2, 0));
+    int count[100][2]; //0: 내가 도달 가능한 노드 수(가벼운 구슬 수), 1: 나에 도달할 수 있는 노드 수(무거운 구슬 수)
+    memset(count, 0, sizeof(count));
+    //vector<vector<int>> count(100, vector<int>(2, 0));
     for(int i=1; i<=N; i++){
         queue<int> q;
         q.push(i);
