@@ -6,5 +6,6 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(Two_Pointer
         #2531.cpp
         #22862.cpp
-        13144.cpp
+        #13144.cpp
+        1806.cpp
         )
