@@ -14,5 +14,6 @@ add_executable(DFS_BFS
         #4179.cpp
         #8061.cpp
         #9205.cpp
-        swea1244.cpp
+        #swea1244.cpp
+        2234.cpp
         )
