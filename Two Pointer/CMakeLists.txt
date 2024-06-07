@@ -8,5 +8,6 @@ add_executable(Two_Pointer
         #22862.cpp
         #13144.cpp
         #1806.cpp
-        1644.cpp
+        #1644.cpp
+        20922.cpp
         )

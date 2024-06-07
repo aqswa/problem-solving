@@ -67,4 +67,32 @@ int main() {
     }
 
     cout << cnt;
+
+    /*
+    int index = 0;
+	primes[index++] = 2;
+	for (int i = 3; i <= n; i += 2)
+		if (!is_not_prime[i])
+			primes[index++] = i;
+
+	int p, q; p = q = 0;
+	int sum = 0;
+	int count = 0;
+
+	while (q <= index)
+	{
+		if (sum < n)
+		{
+			sum += primes[q++];
+		}
+		else
+		{
+			if (sum == n)
+				count++;
+			sum -= primes[p++];
+		}
+	}
+	cout << count;
+
+     */
 }
